@@ -9,6 +9,5 @@ export const typeOrmConfig : TypeOrmModuleOptions = {
   password: 'dog94',
   database: 'boardnest',
   entities: [__dirname + '/../**/*.entity.{js,ts}',Board],
-  // entities: [`${__dirname}../**/*.entity.{js, ts}`, Board],
   synchronize : true
 }
