@@ -4,6 +4,7 @@ import {
 } from '@nestjs/common';
 import { Injectable } from '@nestjs/common/decorators';
 import { DataSource, Repository } from 'typeorm';
+import { UserLoginDto } from './dto/user.login.dto';
 import { UserResgisterDto } from './dto/user.register.dto';
 import { User } from './user.entity';
 
@@ -23,6 +24,16 @@ export class UserRepository extends Repository<User> {
       } else {
         throw new InternalServerErrorException();
       }
+    }
+  }
+
+  async findOneUser(data: UserLoginDto): Promise<User> {
+    try {
+      const findUser = await this.findOne({ where: { email: data.email } });
+
+      return findUser;
+    } catch (error) {
+      console.log(error);
     }
   }
 }
