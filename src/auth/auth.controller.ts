@@ -8,7 +8,8 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('/register')
-  register(@Body() data: UserResgisterDto) {
-    this.authService.register(data);
+  register(@Body() data: UserResgisterDto){
+    const register = this.authService.register(data);
+    return register
   }
 }

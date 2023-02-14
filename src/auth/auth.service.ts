@@ -7,6 +7,10 @@ export class AuthService {
   constructor(private readonly userRepository: UserRepository) {}
 
   async register(data: UserResgisterDto): Promise<void> {
-    await this.userRepository.register(data);
+    try {
+      await this.userRepository.register(data);
+    } catch(error) {
+      return error
+    }
   }
 }
