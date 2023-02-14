@@ -1,9 +1,9 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Req, UseGuards } from '@nestjs/common';
 import { Body, Post } from '@nestjs/common/decorators';
+import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { UserLoginDto } from './dto/user.login.dto';
 import { UserResgisterDto } from './dto/user.register.dto';
-import { User } from './user.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -28,4 +28,10 @@ export class AuthController {
       return error;
     }
   }
+  // @UseGuards() 사용이 안됨?
+  // @Post('/test')
+  // @UseGuards(AuthGuard())
+  // test(@Req() req){
+  //   console.log(req)
+  // }
 }

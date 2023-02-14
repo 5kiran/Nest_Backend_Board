@@ -5,7 +5,6 @@ import {
 import { Injectable } from '@nestjs/common/decorators';
 import { DataSource, Repository } from 'typeorm';
 import { UserLoginDto } from './dto/user.login.dto';
-import { UserResgisterDto } from './dto/user.register.dto';
 import { User } from './user.entity';
 
 @Injectable()
